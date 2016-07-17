@@ -1,0 +1,29 @@
+<Exception>
+<DateTime>3/20/2016 9:44:40 AM</DateTime>
+<SessionID>01ed3dtss2p1tcwtqsw5ozwh</SessionID>
+<Summary>An unhandled exception occured on Sunday, March 20, 2016 9:44:40 AM</Summary>
+<Info>
+<Verb>GET</Verb>
+<URL>localhost/text</URL>
+<HostIP>::1</HostIP>
+</Info>
+<Browser>
+<Name>Chrome</Name>
+<Version>49.0</Version>
+<CookieSupport>True</CookieSupport>
+<JSSupport>True</JSSupport>
+<Platform>WinNT</Platform>
+</Browser>
+<User>Guest</User>
+<ErrorMessage>System.Web.HttpException (0x80004005): The controller for path '/text' was not found or does not implement IController.
+   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)</ErrorMessage>
+
+</Exception>
+

@@ -1,0 +1,58 @@
+<Activity>
+<DateTime>3/20/2016 1:53:51 PM</DateTime>
+<SessionID>01ed3dtss2p1tcwtqsw5ozwh</SessionID>
+<Summary>Some info was loged on Sunday, March 20, 2016 1:53:51 PM</Summary>
+<Page>localhost/Some</Page>
+
+<Message>SomeWebApplication.Controllers.SomeController</Message>
+
+<Info>
+<Verb>GET</Verb>
+<URL>localhost/Some</URL>
+<HostIP>::1</HostIP>
+<ReffererURL>localhost/Home/Login</ReffererURL>
+</Info>
+<Browser>
+<Name>Chrome</Name>
+<Version>49.0</Version>
+<CookieSupport>True</CookieSupport>
+<JSSupport>True</JSSupport>
+<Platform>WinNT</Platform>
+</Browser>
+<User type="User">Tome Hardy</User><UserId type="UserId">1</UserId><UserRole type="UserRole">U</UserRole>
+
+<ElementsInSession>1</ElementsInSession>
+<ElementsInCache>2</ElementsInCache>
+
+
+</Activity>
+
+<Activity>
+<DateTime>3/20/2016 1:53:56 PM</DateTime>
+<SessionID>01ed3dtss2p1tcwtqsw5ozwh</SessionID>
+<Summary>Some info was loged on Sunday, March 20, 2016 1:53:56 PM</Summary>
+<Page>localhost/Some</Page>
+
+<Message>SomeWebApplication.Controllers.SomeController</Message>
+
+<Info>
+<Verb>GET</Verb>
+<URL>localhost/Some</URL>
+<HostIP>::1</HostIP>
+<ReffererURL>localhost/Home/Login</ReffererURL>
+</Info>
+<Browser>
+<Name>Chrome</Name>
+<Version>49.0</Version>
+<CookieSupport>True</CookieSupport>
+<JSSupport>True</JSSupport>
+<Platform>WinNT</Platform>
+</Browser>
+<User type="User">Tome Hardy</User><UserId type="UserId">1</UserId><UserRole type="UserRole">U</UserRole>
+
+<ElementsInSession>1</ElementsInSession>
+<ElementsInCache>2</ElementsInCache>
+
+
+</Activity>
+

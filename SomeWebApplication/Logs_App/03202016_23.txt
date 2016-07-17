@@ -1,0 +1,280 @@
+<Activity>
+<DateTime>3/20/2016 11:09:48 PM</DateTime>
+<SessionID>01ed3dtss2p1tcwtqsw5ozwh</SessionID>
+<Summary>Some info was loged on Sunday, March 20, 2016 11:09:48 PM</Summary>
+<Page>localhost/</Page>
+
+<Message>SomeWebApplication.Controllers.HomeController</Message>
+
+<Info>
+<Verb>GET</Verb>
+<URL>localhost/</URL>
+<HostIP>::1</HostIP>
+</Info>
+<Browser>
+<Name>Chrome</Name>
+<Version>49.0</Version>
+<CookieSupport>True</CookieSupport>
+<JSSupport>True</JSSupport>
+<Platform>WinNT</Platform>
+</Browser>
+<User type="Guest">Guest</User>
+
+<ElementsInSession>0</ElementsInSession>
+<ElementsInCache>2</ElementsInCache>
+
+
+</Activity>
+
+<Activity>
+<DateTime>3/20/2016 11:10:01 PM</DateTime>
+<SessionID>01ed3dtss2p1tcwtqsw5ozwh</SessionID>
+<Summary>Some info was loged on Sunday, March 20, 2016 11:10:01 PM</Summary>
+<Page>localhost/</Page>
+
+<Message>SomeWebApplication.Controllers.HomeController</Message>
+
+<Info>
+<Verb>GET</Verb>
+<URL>localhost/</URL>
+<HostIP>::1</HostIP>
+</Info>
+<Browser>
+<Name>Chrome</Name>
+<Version>49.0</Version>
+<CookieSupport>True</CookieSupport>
+<JSSupport>True</JSSupport>
+<Platform>WinNT</Platform>
+</Browser>
+<User type="Guest">Guest</User>
+
+<ElementsInSession>0</ElementsInSession>
+<ElementsInCache>2</ElementsInCache>
+
+
+</Activity>
+
+<Activity>
+<DateTime>3/20/2016 11:17:35 PM</DateTime>
+<SessionID>01ed3dtss2p1tcwtqsw5ozwh</SessionID>
+<Summary>Some info was loged on Sunday, March 20, 2016 11:17:35 PM</Summary>
+<Page>localhost/</Page>
+
+<Message>SomeWebApplication.Controllers.HomeController</Message>
+
+<Info>
+<Verb>GET</Verb>
+<URL>localhost/</URL>
+<HostIP>::1</HostIP>
+</Info>
+<Browser>
+<Name>Chrome</Name>
+<Version>49.0</Version>
+<CookieSupport>True</CookieSupport>
+<JSSupport>True</JSSupport>
+<Platform>WinNT</Platform>
+</Browser>
+<User type="Guest">Guest</User>
+
+<ElementsInSession>0</ElementsInSession>
+<ElementsInCache>2</ElementsInCache>
+
+
+</Activity>
+
+<Activity>
+<DateTime>3/20/2016 11:17:35 PM</DateTime>
+<SessionID>01ed3dtss2p1tcwtqsw5ozwh</SessionID>
+<Summary>Some info was loged on Sunday, March 20, 2016 11:17:35 PM</Summary>
+<Page>localhost/</Page>
+
+<Message>SomeWebApplication.Controllers.HomeController</Message>
+
+<Info>
+<Verb>GET</Verb>
+<URL>localhost/</URL>
+<HostIP>::1</HostIP>
+</Info>
+<Browser>
+<Name>Chrome</Name>
+<Version>49.0</Version>
+<CookieSupport>True</CookieSupport>
+<JSSupport>True</JSSupport>
+<Platform>WinNT</Platform>
+</Browser>
+<User type="Guest">Guest</User>
+
+<ElementsInSession>0</ElementsInSession>
+<ElementsInCache>2</ElementsInCache>
+
+
+</Activity>
+
+<Activity>
+<DateTime>3/20/2016 11:31:54 PM</DateTime>
+<SessionID>01ed3dtss2p1tcwtqsw5ozwh</SessionID>
+<Summary>Some info was loged on Sunday, March 20, 2016 11:31:54 PM</Summary>
+<Page>localhost/</Page>
+
+<Message>SomeWebApplication.Controllers.HomeController</Message>
+
+<Info>
+<Verb>GET</Verb>
+<URL>localhost/</URL>
+<HostIP>::1</HostIP>
+</Info>
+<Browser>
+<Name>Chrome</Name>
+<Version>49.0</Version>
+<CookieSupport>True</CookieSupport>
+<JSSupport>True</JSSupport>
+<Platform>WinNT</Platform>
+</Browser>
+<User type="Guest">Guest</User>
+
+<ElementsInSession>0</ElementsInSession>
+<ElementsInCache>2</ElementsInCache>
+
+
+</Activity>
+
+<Activity>
+<DateTime>3/20/2016 11:31:54 PM</DateTime>
+<SessionID>01ed3dtss2p1tcwtqsw5ozwh</SessionID>
+<Summary>Some info was loged on Sunday, March 20, 2016 11:31:54 PM</Summary>
+<Page>localhost/</Page>
+
+<Message>SomeWebApplication.Controllers.HomeController</Message>
+
+<Info>
+<Verb>GET</Verb>
+<URL>localhost/</URL>
+<HostIP>::1</HostIP>
+</Info>
+<Browser>
+<Name>Chrome</Name>
+<Version>49.0</Version>
+<CookieSupport>True</CookieSupport>
+<JSSupport>True</JSSupport>
+<Platform>WinNT</Platform>
+</Browser>
+<User type="Guest">Guest</User>
+
+<ElementsInSession>0</ElementsInSession>
+<ElementsInCache>2</ElementsInCache>
+
+
+</Activity>
+
+<Activity>
+<DateTime>3/20/2016 11:35:16 PM</DateTime>
+<SessionID>01ed3dtss2p1tcwtqsw5ozwh</SessionID>
+<Summary>Some info was loged on Sunday, March 20, 2016 11:35:16 PM</Summary>
+<Page>localhost/</Page>
+
+<Message>SomeWebApplication.Controllers.HomeController</Message>
+
+<Info>
+<Verb>GET</Verb>
+<URL>localhost/</URL>
+<HostIP>::1</HostIP>
+</Info>
+<Browser>
+<Name>Chrome</Name>
+<Version>49.0</Version>
+<CookieSupport>True</CookieSupport>
+<JSSupport>True</JSSupport>
+<Platform>WinNT</Platform>
+</Browser>
+<User type="Guest">Guest</User>
+
+<ElementsInSession>0</ElementsInSession>
+<ElementsInCache>2</ElementsInCache>
+
+
+</Activity>
+
+<Activity>
+<DateTime>3/20/2016 11:35:16 PM</DateTime>
+<SessionID>01ed3dtss2p1tcwtqsw5ozwh</SessionID>
+<Summary>Some info was loged on Sunday, March 20, 2016 11:35:16 PM</Summary>
+<Page>localhost/</Page>
+
+<Message>SomeWebApplication.Controllers.HomeController</Message>
+
+<Info>
+<Verb>GET</Verb>
+<URL>localhost/</URL>
+<HostIP>::1</HostIP>
+</Info>
+<Browser>
+<Name>Chrome</Name>
+<Version>49.0</Version>
+<CookieSupport>True</CookieSupport>
+<JSSupport>True</JSSupport>
+<Platform>WinNT</Platform>
+</Browser>
+<User type="Guest">Guest</User>
+
+<ElementsInSession>0</ElementsInSession>
+<ElementsInCache>2</ElementsInCache>
+
+
+</Activity>
+
+<Activity>
+<DateTime>3/20/2016 11:55:58 PM</DateTime>
+<SessionID>01ed3dtss2p1tcwtqsw5ozwh</SessionID>
+<Summary>Some info was loged on Sunday, March 20, 2016 11:55:58 PM</Summary>
+<Page>localhost/</Page>
+
+<Message>SomeWebApplication.Controllers.HomeController</Message>
+
+<Info>
+<Verb>GET</Verb>
+<URL>localhost/</URL>
+<HostIP>::1</HostIP>
+</Info>
+<Browser>
+<Name>Chrome</Name>
+<Version>49.0</Version>
+<CookieSupport>True</CookieSupport>
+<JSSupport>True</JSSupport>
+<Platform>WinNT</Platform>
+</Browser>
+<User type="Guest">Guest</User>
+
+<ElementsInSession>0</ElementsInSession>
+<ElementsInCache>2</ElementsInCache>
+
+
+</Activity>
+
+<Activity>
+<DateTime>3/20/2016 11:55:58 PM</DateTime>
+<SessionID>01ed3dtss2p1tcwtqsw5ozwh</SessionID>
+<Summary>Some info was loged on Sunday, March 20, 2016 11:55:58 PM</Summary>
+<Page>localhost/</Page>
+
+<Message>SomeWebApplication.Controllers.HomeController</Message>
+
+<Info>
+<Verb>GET</Verb>
+<URL>localhost/</URL>
+<HostIP>::1</HostIP>
+</Info>
+<Browser>
+<Name>Chrome</Name>
+<Version>49.0</Version>
+<CookieSupport>True</CookieSupport>
+<JSSupport>True</JSSupport>
+<Platform>WinNT</Platform>
+</Browser>
+<User type="Guest">Guest</User>
+
+<ElementsInSession>0</ElementsInSession>
+<ElementsInCache>2</ElementsInCache>
+
+
+</Activity>
+

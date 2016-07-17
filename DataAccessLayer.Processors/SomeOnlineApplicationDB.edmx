@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SomeOnlineApplicationDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ApplicationUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pincode" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreditCard" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" />
+          <Property Name="StoreId" Type="int" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameId" Type="int" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Item" Type="int" />
+          <Property Name="StoreId" Type="int" />
+        </EntityType>
+        <EntityType Name="Logging">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LogMessage" Type="nvarchar" MaxLength="50" />
+          <Property Name="DetailedMessage" Type="nvarchar" MaxLength="500" />
+          <Property Name="ApplicationExceptionId" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="LogType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="StoreProductAssociation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="StoreId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="HotDealCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="OffPercent" Type="int" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserCartRelation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CardId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="StoreId" Type="int" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Applicati__Store__34C8D9D1">
+          <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
+          <End Role="ApplicationUser" Type="Self.ApplicationUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApplicationUser">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__NameId__35BCFE0A">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="NameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StoreProd__Produ__37A5467C">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="StoreProductAssociation" Type="Self.StoreProductAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StoreProductAssociation">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StoreProd__Store__36B12243">
+          <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
+          <End Role="StoreProductAssociation" Type="Self.StoreProductAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StoreProductAssociation">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserCartR__CardI__38996AB5">
+          <End Role="Cart" Type="Self.Cart" Multiplicity="0..1" />
+          <End Role="UserCartRelation" Type="Self.UserCartRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cart">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCartRelation">
+              <PropertyRef Name="CardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserCartR__Store__3A81B327">
+          <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
+          <End Role="UserCartRelation" Type="Self.UserCartRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCartRelation">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserCartR__UserI__398D8EEE">
+          <End Role="ApplicationUser" Type="Self.ApplicationUser" Multiplicity="0..1" />
+          <End Role="UserCartRelation" Type="Self.UserCartRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCartRelation">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SomeOnlineApplicationDBModelStoreContainer">
+          <EntitySet Name="ApplicationUser" EntityType="Self.ApplicationUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logging" EntityType="Self.Logging" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StoreProductAssociation" EntityType="Self.StoreProductAssociation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stores" EntityType="Self.Stores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCartRelation" EntityType="Self.UserCartRelation" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Applicati__Store__34C8D9D1" Association="Self.FK__Applicati__Store__34C8D9D1">
+            <End Role="Stores" EntitySet="Stores" />
+            <End Role="ApplicationUser" EntitySet="ApplicationUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__NameId__35BCFE0A" Association="Self.FK__Cart__NameId__35BCFE0A">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StoreProd__Produ__37A5467C" Association="Self.FK__StoreProd__Produ__37A5467C">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="StoreProductAssociation" EntitySet="StoreProductAssociation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StoreProd__Store__36B12243" Association="Self.FK__StoreProd__Store__36B12243">
+            <End Role="Stores" EntitySet="Stores" />
+            <End Role="StoreProductAssociation" EntitySet="StoreProductAssociation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserCartR__CardI__38996AB5" Association="Self.FK__UserCartR__CardI__38996AB5">
+            <End Role="Cart" EntitySet="Cart" />
+            <End Role="UserCartRelation" EntitySet="UserCartRelation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserCartR__Store__3A81B327" Association="Self.FK__UserCartR__Store__3A81B327">
+            <End Role="Stores" EntitySet="Stores" />
+            <End Role="UserCartRelation" EntitySet="UserCartRelation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserCartR__UserI__398D8EEE" Association="Self.FK__UserCartR__UserI__398D8EEE">
+            <End Role="ApplicationUser" EntitySet="ApplicationUser" />
+            <End Role="UserCartRelation" EntitySet="UserCartRelation" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SomeOnlineApplicationDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SomeOnlineApplicationDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ApplicationUsers" EntityType="SomeOnlineApplicationDBModel.ApplicationUser" />
+          <EntitySet Name="Carts" EntityType="SomeOnlineApplicationDBModel.Cart" />
+          <EntitySet Name="Loggings" EntityType="SomeOnlineApplicationDBModel.Logging" />
+          <EntitySet Name="Products" EntityType="SomeOnlineApplicationDBModel.Product" />
+          <EntitySet Name="StoreProductAssociations" EntityType="SomeOnlineApplicationDBModel.StoreProductAssociation" />
+          <EntitySet Name="Stores" EntityType="SomeOnlineApplicationDBModel.Store" />
+          <EntitySet Name="UserCartRelations" EntityType="SomeOnlineApplicationDBModel.UserCartRelation" />
+          <AssociationSet Name="FK__Applicati__Store__34C8D9D1" Association="SomeOnlineApplicationDBModel.FK__Applicati__Store__34C8D9D1">
+            <End Role="Store" EntitySet="Stores" />
+            <End Role="ApplicationUser" EntitySet="ApplicationUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserCartR__UserI__398D8EEE" Association="SomeOnlineApplicationDBModel.FK__UserCartR__UserI__398D8EEE">
+            <End Role="ApplicationUser" EntitySet="ApplicationUsers" />
+            <End Role="UserCartRelation" EntitySet="UserCartRelations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__NameId__35BCFE0A" Association="SomeOnlineApplicationDBModel.FK__Cart__NameId__35BCFE0A">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserCartR__CardI__38996AB5" Association="SomeOnlineApplicationDBModel.FK__UserCartR__CardI__38996AB5">
+            <End Role="Cart" EntitySet="Carts" />
+            <End Role="UserCartRelation" EntitySet="UserCartRelations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StoreProd__Produ__37A5467C" Association="SomeOnlineApplicationDBModel.FK__StoreProd__Produ__37A5467C">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="StoreProductAssociation" EntitySet="StoreProductAssociations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StoreProd__Store__36B12243" Association="SomeOnlineApplicationDBModel.FK__StoreProd__Store__36B12243">
+            <End Role="Store" EntitySet="Stores" />
+            <End Role="StoreProductAssociation" EntitySet="StoreProductAssociations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserCartR__Store__3A81B327" Association="SomeOnlineApplicationDBModel.FK__UserCartR__Store__3A81B327">
+            <End Role="Store" EntitySet="Stores" />
+            <End Role="UserCartRelation" EntitySet="UserCartRelations" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ApplicationUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pincode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreditCard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StoreId" Type="Int32" />
+          <NavigationProperty Name="Store" Relationship="SomeOnlineApplicationDBModel.FK__Applicati__Store__34C8D9D1" FromRole="ApplicationUser" ToRole="Store" />
+          <NavigationProperty Name="UserCartRelations" Relationship="SomeOnlineApplicationDBModel.FK__UserCartR__UserI__398D8EEE" FromRole="ApplicationUser" ToRole="UserCartRelation" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameId" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Item" Type="Int32" />
+          <Property Name="StoreId" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="SomeOnlineApplicationDBModel.FK__Cart__NameId__35BCFE0A" FromRole="Cart" ToRole="Product" />
+          <NavigationProperty Name="UserCartRelations" Relationship="SomeOnlineApplicationDBModel.FK__UserCartR__CardI__38996AB5" FromRole="Cart" ToRole="UserCartRelation" />
+        </EntityType>
+        <EntityType Name="Logging">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogMessage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DetailedMessage" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationExceptionId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LogType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Carts" Relationship="SomeOnlineApplicationDBModel.FK__Cart__NameId__35BCFE0A" FromRole="Product" ToRole="Cart" />
+          <NavigationProperty Name="StoreProductAssociations" Relationship="SomeOnlineApplicationDBModel.FK__StoreProd__Produ__37A5467C" FromRole="Product" ToRole="StoreProductAssociation" />
+        </EntityType>
+        <EntityType Name="StoreProductAssociation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="StoreId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="HotDealCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OffPercent" Type="Int32" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Product" Relationship="SomeOnlineApplicationDBModel.FK__StoreProd__Produ__37A5467C" FromRole="StoreProductAssociation" ToRole="Product" />
+          <NavigationProperty Name="Store" Relationship="SomeOnlineApplicationDBModel.FK__StoreProd__Store__36B12243" FromRole="StoreProductAssociation" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="ApplicationUsers" Relationship="SomeOnlineApplicationDBModel.FK__Applicati__Store__34C8D9D1" FromRole="Store" ToRole="ApplicationUser" />
+          <NavigationProperty Name="StoreProductAssociations" Relationship="SomeOnlineApplicationDBModel.FK__StoreProd__Store__36B12243" FromRole="Store" ToRole="StoreProductAssociation" />
+          <NavigationProperty Name="UserCartRelations" Relationship="SomeOnlineApplicationDBModel.FK__UserCartR__Store__3A81B327" FromRole="Store" ToRole="UserCartRelation" />
+        </EntityType>
+        <EntityType Name="UserCartRelation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CardId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StoreId" Type="Int32" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ApplicationUser" Relationship="SomeOnlineApplicationDBModel.FK__UserCartR__UserI__398D8EEE" FromRole="UserCartRelation" ToRole="ApplicationUser" />
+          <NavigationProperty Name="Cart" Relationship="SomeOnlineApplicationDBModel.FK__UserCartR__CardI__38996AB5" FromRole="UserCartRelation" ToRole="Cart" />
+          <NavigationProperty Name="Store" Relationship="SomeOnlineApplicationDBModel.FK__UserCartR__Store__3A81B327" FromRole="UserCartRelation" ToRole="Store" />
+        </EntityType>
+        <Association Name="FK__Applicati__Store__34C8D9D1">
+          <End Type="SomeOnlineApplicationDBModel.Store" Role="Store" Multiplicity="0..1" />
+          <End Type="SomeOnlineApplicationDBModel.ApplicationUser" Role="ApplicationUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApplicationUser">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserCartR__UserI__398D8EEE">
+          <End Type="SomeOnlineApplicationDBModel.ApplicationUser" Role="ApplicationUser" Multiplicity="0..1" />
+          <End Type="SomeOnlineApplicationDBModel.UserCartRelation" Role="UserCartRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCartRelation">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__NameId__35BCFE0A">
+          <End Type="SomeOnlineApplicationDBModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="SomeOnlineApplicationDBModel.Cart" Role="Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="NameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserCartR__CardI__38996AB5">
+          <End Type="SomeOnlineApplicationDBModel.Cart" Role="Cart" Multiplicity="0..1" />
+          <End Type="SomeOnlineApplicationDBModel.UserCartRelation" Role="UserCartRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cart">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCartRelation">
+              <PropertyRef Name="CardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StoreProd__Produ__37A5467C">
+          <End Type="SomeOnlineApplicationDBModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="SomeOnlineApplicationDBModel.StoreProductAssociation" Role="StoreProductAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StoreProductAssociation">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StoreProd__Store__36B12243">
+          <End Type="SomeOnlineApplicationDBModel.Store" Role="Store" Multiplicity="0..1" />
+          <End Type="SomeOnlineApplicationDBModel.StoreProductAssociation" Role="StoreProductAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StoreProductAssociation">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserCartR__Store__3A81B327">
+          <End Type="SomeOnlineApplicationDBModel.Store" Role="Store" Multiplicity="0..1" />
+          <End Type="SomeOnlineApplicationDBModel.UserCartRelation" Role="UserCartRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCartRelation">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SomeOnlineApplicationDBModelStoreContainer" CdmEntityContainer="SomeOnlineApplicationDBEntities">
+          <EntitySetMapping Name="ApplicationUsers">
+            <EntityTypeMapping TypeName="SomeOnlineApplicationDBModel.ApplicationUser">
+              <MappingFragment StoreEntitySet="ApplicationUser">
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CreditCard" ColumnName="CreditCard" />
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carts">
+            <EntityTypeMapping TypeName="SomeOnlineApplicationDBModel.Cart">
+              <MappingFragment StoreEntitySet="Cart">
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="NameId" ColumnName="NameId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Loggings">
+            <EntityTypeMapping TypeName="SomeOnlineApplicationDBModel.Logging">
+              <MappingFragment StoreEntitySet="Logging">
+                <ScalarProperty Name="LogType" ColumnName="LogType" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ApplicationExceptionId" ColumnName="ApplicationExceptionId" />
+                <ScalarProperty Name="DetailedMessage" ColumnName="DetailedMessage" />
+                <ScalarProperty Name="LogMessage" ColumnName="LogMessage" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="SomeOnlineApplicationDBModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StoreProductAssociations">
+            <EntityTypeMapping TypeName="SomeOnlineApplicationDBModel.StoreProductAssociation">
+              <MappingFragment StoreEntitySet="StoreProductAssociation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OffPercent" ColumnName="OffPercent" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="HotDealCode" ColumnName="HotDealCode" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stores">
+            <EntityTypeMapping TypeName="SomeOnlineApplicationDBModel.Store">
+              <MappingFragment StoreEntitySet="Stores">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserCartRelations">
+            <EntityTypeMapping TypeName="SomeOnlineApplicationDBModel.UserCartRelation">
+              <MappingFragment StoreEntitySet="UserCartRelation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CardId" ColumnName="CardId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
